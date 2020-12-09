@@ -1,0 +1,26 @@
+version: '3.2'
+
+services:
+  kite-server:
+    build: .
+    ports:
+      - target: 4443
+        published: 8443
+        protocol: tcp
+        mode: host
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:alpine
+    restart: always
+    volumes:
+    - /data/redis:/data
+    command: ["redis-server", "--appendonly", "yes", "--requirepass", "+g0m0n+"]
+    ports:
+    - target: 6379
+      published: 6379
+      mode: host
+
+volumes:
+  redis:
