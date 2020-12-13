@@ -16,11 +16,7 @@ services:
     restart: always
     volumes:
     - /data/redis:/data
-    command: ["redis-server", "--appendonly", "yes", "--requirepass", "+g0m0n+"]
-    ports:
-    - target: 6379
-      published: 6379
-      mode: host
+    command: ["redis-server", "--appendonly", "yes", "--requirepass", "ch4ng3-m3"]
 
 volumes:
   redis:

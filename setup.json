@@ -1,5 +1,5 @@
 {
-    "api_key": "",
+    "api_key": "QakFwYUpRl9sL9Txn2Skid9anfu3VG0h",
     "server": "0.0.0.0",
     "port": "4443",
     "check_origin": false,
@@ -8,5 +8,7 @@
     "cert": {
       "ssl_key": "./ssl/setup.key",
       "ssl_cert": "./ssl/setup.crt"
-    }
+    },
+    "redis_server": "redis",
+    "redis_password": "ch4ng3-m3"
   }
