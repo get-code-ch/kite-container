@@ -4,8 +4,8 @@ services:
   kite-server:
     build: .
     ports:
-      - target: 4443
-        published: 8443
+      - target: 9443
+        published: 9443
         protocol: tcp
         mode: host
     depends_on:

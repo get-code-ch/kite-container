@@ -31,9 +31,9 @@ COPY --from=builder /go/bin/kite-server /kite-server/kite-server
 
 RUN mkdir -p ./config
 
-EXPOSE 4443
+EXPOSE 9443
 
-COPY setup.json /kite-server/config/default.json
+COPY setup.json /kite-server/config/setup.json
 COPY setup.key /kite-server/ssl/
 COPY setup.crt /kite-server/ssl/
 

@@ -1,7 +1,7 @@
 {
-    "api_key": "QakFwYUpRl9sL9Txn2Skid9anfu3VG0h",
+    "api_key": "ch4ng3-m3",
     "server": "0.0.0.0",
-    "port": "4443",
+    "port": "9443",
     "check_origin": false,
     "ssl": true,
     "setup_mode": true,
