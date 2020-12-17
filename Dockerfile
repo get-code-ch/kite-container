@@ -13,6 +13,7 @@ RUN sed -i '/^replace/d' go.mod
 
 #get dependancies
 RUN go get -d -v
+
 #build the binary
 RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build  -a -installsuffix cgo -ldflags="-w -s" -o /go/bin/kite-server
 
@@ -30,13 +31,9 @@ RUN echo "Europe/Zurich" > /etc/timezone
 WORKDIR /kite-server
 COPY --from=builder /go/bin/kite-server /kite-server/kite-server
 
-#RUN mkdir -p ./config
-#RUN ln -s  /config /kite-server/config
-
 EXPOSE 9443
 EXPOSE 9080
 
-#COPY setup.json /kite-server/config/setup.json
 COPY setup.key /kite-server/ssl/
 COPY setup.crt /kite-server/ssl/
 
