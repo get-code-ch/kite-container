@@ -4,7 +4,7 @@ RUN apk update && apk add git sed
 
 WORKDIR /
 
-RUN git clone https://github.com/get-code-ch/kite-server.git
+RUN git clone --branch prototype  https://github.com/get-code-ch/kite-server.git
 
 WORKDIR /kite-server
 
