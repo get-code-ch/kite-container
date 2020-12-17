@@ -21,6 +21,7 @@ LABEL maintainer="Claude Debieux <claude@get-code.ch>"
 LABEL name="kite-server"
 
 RUN apk add --no-cache --update bash iputils tzdata
+#RUN apk add --update bash iputils tzdata
 
 ## Setting localtime
 RUN cp /usr/share/zoneinfo/Europe/Zurich /etc/localtime
@@ -29,13 +30,17 @@ RUN echo "Europe/Zurich" > /etc/timezone
 WORKDIR /kite-server
 COPY --from=builder /go/bin/kite-server /kite-server/kite-server
 
-RUN mkdir -p ./config
+#RUN mkdir -p ./config
+#RUN ln -s  /config /kite-server/config
 
 EXPOSE 9443
 EXPOSE 9080
 
-COPY setup.json /kite-server/config/setup.json
+#COPY setup.json /kite-server/config/setup.json
 COPY setup.key /kite-server/ssl/
 COPY setup.crt /kite-server/ssl/
 
+RUN ls -alhR /kite-server
+
+VOLUME /kite-server/config
 ENTRYPOINT ["/kite-server/kite-server"]
