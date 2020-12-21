@@ -16,15 +16,23 @@ services:
         protocol: tcp
         mode: host
     depends_on:
-      - redis
+      - rethinkdb
 
-  redis:
-    image: redis:alpine
+  rethinkdb:
+    image: rethinkdb:latest
     restart: always
     volumes:
-    - /data/redis:/data
-    command: ["redis-server", "--appendonly", "yes", "--requirepass", "ch4ng3-m3"]
+    - /data/rethinkdb:/data
+    ports:
+      - target: 8080
+        published: 8080
+        protocol: tcp
+        mode: host
+      - target: 28015
+        published: 28015
+        protocol: tcp
+        mode: host
 
 volumes:
   kite-server:
-  redis:
+  rethinkdb:
