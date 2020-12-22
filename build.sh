@@ -8,5 +8,5 @@ docker image prune -f
 
 
 # rebuild kite-server image and run container
-docker-compose up -d --build kite-server
+docker-compose up --remove-orphans -d --build kite-server
 docker cp setup.json kite-container_kite-server_1:/kite-server/config/setup.json

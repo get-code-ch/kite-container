@@ -15,24 +15,23 @@ services:
         published: 9080
         protocol: tcp
         mode: host
-    depends_on:
-      - rethinkdb
+#    depends_on:
+#      - database
 
-  rethinkdb:
-    image: rethinkdb:latest
-    restart: always
-    volumes:
-    - /data/rethinkdb:/data
-    ports:
-      - target: 8080
-        published: 8080
-        protocol: tcp
-        mode: host
-      - target: 28015
-        published: 28015
-        protocol: tcp
-        mode: host
+#  database:
+#    image: mongo:latest
+#    restart: always
+#    environment:
+#      MONGO_INITDB_ROOT_USERNAME: dbuser
+#      MONGO_INITDB_ROOT_PASSWORD: dbuserpasswordmustbechanged
+#    volumes:
+#    - /data/mongodb:/data/db
+#    ports:
+#      - target: 27017
+#        published: 27017
+#        protocol: tcp
+#        mode: host
 
 volumes:
   kite-server:
-  rethinkdb:
+#  database:
