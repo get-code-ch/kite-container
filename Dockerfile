@@ -37,7 +37,5 @@ EXPOSE 9080
 COPY setup.key /kite-server/ssl/
 COPY setup.crt /kite-server/ssl/
 
-RUN ls -alhR /kite-server
-
 VOLUME /kite-server/config
 ENTRYPOINT ["/kite-server/kite-server"]
